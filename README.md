@@ -75,4 +75,3 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 ## Acknowledgments
 
 - Thanks to Godot Engine for providing an open-source platform to build this engine.
-- Thanks to all contributors and the visual novel community for inspiration.
