@@ -1,3 +1,23 @@
+# TGVNgine
+## Tokard's Godot Visual Novel Engine
+
+TGVNgine is a simple, lightweight visual novel engine built with Godot, designed to help me quickly create and prototype 2D visual novels with more flexibility than Ren'Py.
+
+## Getting Started
+
+### Prerequisites
+- Godot Engine (version 3.5 or higher recommended).
+- Basic understanding of Godot and GDScript.
+
+### Installation
+
+1. Clone the repository:
+   git clone https://github.com/yourusername/TGVNgine.git
+
+2. Open the project in Godot.
+
+3. IDK this is the first commit man
+
 # Documentation
 
 ## Character Management
@@ -9,6 +29,8 @@
 | `[[mv character x]]`           | Moves the character horizontally. Value ranges from -50 to 50, with 0 as the center of the screen. | `[[mv amicus 25]]`           |
 | `[[look character_name direction]]` | Changes the direction the character is facing. Direction can be `left`, `right`, or other custom orientations. | `[[look amicus left]]`       |
 | `{character_name}`             | Specifies which character is speaking in the dialogue.                     | `{amicus}`                   |
+
+<br>
 
 ## Background Management
 
@@ -52,6 +74,8 @@
 | Command                        | Explanation                                                                 | Example                      |
 |--------------------------------|-----------------------------------------------------------------------------|------------------------------|
 | `#`                            | Marks the beginning of a comment. It is ignored during execution.           | `# This is a comment`        |
+
+<br>
 
 ## Acknowledgments
 
