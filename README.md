@@ -17,6 +17,13 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 <br>
 
 # Documentation
+
+## File Management with `.tgvn` Files
+
+In TGVNgine, all game content and story progression are stored in custom `.tgvn` files. These files serve as the core structure for handling routes, scenes, characters, and choices in the visual novel. Each `.tgvn` file represents a segment of the story, allowing for dynamic transitions between different paths, based on the player’s decisions.
+
+These files are written in a simple text format and can be easily edited to create complex branching narratives with variables, conditions, and actions. When the player makes a choice, the engine will load a new `.tgvn` file to continue the story from the chosen point.
+
 ## Character Management
 
 | Command                      | Explanation                                                                                                    | Example               | Status             |
@@ -26,7 +33,7 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 | `[character mv x]`           | Moves the `character` horizontally. The `x` value ranges from -50 to 50, with 0 as the center of the screen.     | `[amicus mv 25]`      | <span style="color:red;">To Do</span> |
 | `[character look direction]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right`.                         | `[amicus look left]`  | <span style="color:red;">To Do</span> |
 | `>character text`            | Specifies which `character` is speaking and their dialogue.                                                   | `>amicus Hi Marco, slept well?` | <span style="color:red;">To Do</span> |
-| `@text`                       | Displays narration or inner thoughts not tied to a specific character.                                        | `@You think about Amicus` | <span style="color:red;">To Do</span> |
+| `text`                       | Displays narration or inner thoughts not tied to a specific character.                                        | `You think about Amicus` | <span style="color:red;">To Do</span> |
 | `[character anim animation]` | Plays a one-time `animation` for the specified `character`.                                                   | `[amicus anim jump]`       | <span style="color:red;">To Do</span> |
 | `[character loop animation]` | Plays a looping `animation` for the `character`.                                                             | `[amicus loop idle]`  | <span style="color:red;">To Do</span> |
 
@@ -65,6 +72,58 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 |----------------------|--------------------------------------------------------------------------------------------------|--------------------------|--------------------|
 | `[+layer image Z]`    | Adds a `layer` at the specified Z-index. Layers with a negative Z go behind characters. Backgrounds don't have indices and always remain in the back. | `[+layer shadows 2]`     | <span style="color:red;">To Do</span> |
 | `[-layer image]`      | Removes a layer from the scene.                                                                  | `[-layer shadows]`        | <span style="color:red;">To Do</span> |
+
+<br>
+
+## Goto Command
+
+| Command        | Explanation                                                                                                      | Example              | Status             |
+|----------------|------------------------------------------------------------------------------------------------------------------|----------------------|--------------------|
+| `[goto scene]` | Jump to the specified `scene`. This can be used to move to a new scene or checkpoint in the visual novel. Scenes are using .tgvn extension.         | `[goto endScene]`    | <span style="color:red;">To Do</span> |
+
+<br>
+
+#Voici la version sans le bloc `markdown` :
+
+## Choice Management
+
+| Command            | Explanation                                                                                               | Example                | Status             |
+|--------------------|-----------------------------------------------------------------------------------------------------------|------------------------|--------------------|
+| `[choice (choices)]`         | Displays a choice menu with options for the player to select. Each option leads to a different scene or action. | `[choice "hit him", "try something", "hug him"]` | <span style="color:red;">To Do</span> |
+
+<br>
+
+Example
+
+```
+[choice "hit him", "try something", "hug him"]
+    [case 1]
+        You choose to hit Amicus
+        >Amicus Why????
+        >Alexio Wtf are you crazy ?
+        [goto route2]
+    [case 2]
+        You choose to try something
+        >Amicus uh ok????
+        [goto route3]
+    [case 3]
+        You choose to hug Amicus
+        >Amicus maww
+        [goto route4]
+    [end choice]
+```
+
+<br>
+
+## Variable Management
+
+| Command               | Explanation                                                                                     | Example                   | Status             |
+|-----------------------|-------------------------------------------------------------------------------------------------|---------------------------|--------------------|
+| `[set variable value]` | Sets a `variable` to a specified `value`. This is useful for tracking player choices or game state.  | `[set love 10]`    | <span style="color:red;">To Do</span> |
+| `[change variable]`  | Increases or decreases a `variable` by a specified amount.                                                      | `[change love -5]` | <span style="color:red;">To Do</span> |
+| `[if variable condition]` | Checks if the `variable` meets a specified `condition`. If true, the following block of code is executed. | `[if player_score > 10]`  | <span style="color:red;">To Do</span> |
+| `[else]`               | Executes the block of code after the `if` statement if the condition is false.                   | `[else]`                   | <span style="color:red;">To Do</span> |
+| `[endif]`             | Ends the `if` statement.                                                                          | `[end if]`                | <span style="color:red;">To Do</span> |
 
 <br>
 
