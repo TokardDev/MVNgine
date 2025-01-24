@@ -29,7 +29,7 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 | Command                        | Explanation                                                                 | Example                      |
 |--------------------------------|-----------------------------------------------------------------------------|------------------------------|
 | `[[background name]]`           | Sets the background to the specified image from the background folder.      | `[[background house]]`       |
-
+ 
 <br>
 
 ## Music & Sound Management
