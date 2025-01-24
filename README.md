@@ -24,7 +24,7 @@ In TGVNgine, all game content and story progression are stored in custom `.tgvn`
 
 These files are written in a simple text format and can be easily edited to create complex branching narratives with variables, conditions, and actions. When the player makes a choice, the engine will load a new `.tgvn` file to continue the story from the chosen point.
 
-You can run ``./bin/build`` script to build a custom exe or .sh depending on your OS embedded TGVNgine and using a custom name + icon
+You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on your OS using a custom name + icon.
 
 ## Character Management
 
