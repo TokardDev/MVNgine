@@ -28,12 +28,15 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 | `[character look direction]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right` | `[amicus look left]`  | <span style="color:red;">To Do</span> |
 | `>character text`            | Specifies which `character` is speaking in the dialogue, and it's dialogue.                                                        | `>amicus Hi Marco, slept well ?`            | <span style="color:red;">To Do</span> |
 | `@text`            | 	Displays narration or inner thoughts not tied to a specific character. | `@You think about Amicus`            | <span style="color:red;">To Do</span> |
+| `[character anim animation]` | Plays a one-time `animation` for the specified `character`.                                        | `[amicus anim jump]`       | <span style="color:red;">To Do</span> |
+| `[character loop animation]` | Plays a looping `animation` for the `character`.                                              | `[amicus loop idle]`  | <span style="color:red;">To Do</span> |
 
 ## Background Management
 
 | Command               | Explanation                                                                | Example                 | Status             |
 |-----------------------|----------------------------------------------------------------------------|-------------------------|--------------------|
 | `[bg image]`           | Sets the background to the specified `image` from the background folder.     | `[bg house]`           | <span style="color:red;">To Do</span> |
+| `[bg anim direction speed]`    | Moves the background in a specified direction `up`, `down`, `left`, `right` with a defined speed. | `[bg anim down 2]`           | <span style="color:red;">To Do</span> |
 
 <br>
 
@@ -53,16 +56,6 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 |-------------------------|--------------------------------------------------------------------------------------------------|--------------------------|--------------------|
 | `[+layer image Z]` | Adds a `layer` at the specified Z-index. Layers with negative Z go behind characters. Backgrounds don't have indices and always remain in the back. | `[+layer shadows 2]`     | <span style="color:red;">To Do</span> |
 | `[-layer image]`   | Removes a layer from the scene.                                                                  | `[-layer shadows]`        | <span style="color:red;">To Do</span> |
-
-<br>
-
-## Animation & Effects
-
-| Command                    | Explanation                                                                                   | Example                    | Status             |
-|----------------------------|-----------------------------------------------------------------------------------------------|----------------------------|--------------------|
-| `[character anim animation]` | Plays a one-time `animation` for the specified `character`.                                        | `[amicus anim jump]`       | <span style="color:red;">To Do</span> |
-| `[character loop animation]` | Plays a looping `animation` for the `character`.                                              | `[amicus loop idle]`  | <span style="color:red;">To Do</span> |
-| `[bg anim direction speed]`    | Moves the background in a specified direction `up`, `down`, `left`, `right` with a defined speed. | `[bg anim down 2]`           | <span style="color:red;">To Do</span> |
 
 <br>
 
