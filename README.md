@@ -109,7 +109,6 @@ Example
     [case 3]
         You choose to hug Amicus
         >Amicus maww
-        [goto route4]
     [end choice]
 ```
 
