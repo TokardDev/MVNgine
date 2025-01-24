@@ -22,8 +22,8 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 
 | Command                  | Explanation                                                                                                    | Example               | Status             |
 |--------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------|--------------------|
-| `[+character (expression)]` | Adds a `character` to the scene. `expression` is optional and allow to load a character with another sprite. <br> If no expression is provided, the default expression is used. | `[amicus+ smile]`     | <span style="color:red;">To Do</span> |
-| `[-character]`           | Removes the specified `character` from the scene.                                                             | `[amicus-]`           | <span style="color:red;">To Do</span> |
+| `[+character (expression)]` | Adds a `character` to the scene. `expression` is optional and allow to load a character with another sprite. <br> If no expression is provided, the default expression is used. | `[+amicus smile]`     | <span style="color:red;">To Do</span> |
+| `[-character]`           | Removes the specified `character` from the scene.                                                             | `[-amicus]`           | <span style="color:red;">To Do</span> |
 | `[character mv x]`       | Moves the `character` horizontally. `x` value ranges from -50 to 50, with 0 as the center of the screen.            | `[amicus mv 25]`      | <span style="color:red;">To Do</span> |
 | `[character look direction]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right` | `[amicus look left]`  | <span style="color:red;">To Do</span> |
 | `>character text`            | Specifies which `character` is speaking in the dialogue, and it's dialogue.                                                        | `>amicus Hi Marco, slept well ?`            | <span style="color:red;">To Do</span> |
