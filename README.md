@@ -30,14 +30,14 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 
 | Command                      | Explanation                                                                                                    | Example               | Status             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------|--------------------|
-| `[+character (expression)]`   | Adds a `character` to the scene. `expression` is optional and allows loading a character with a different sprite. If no expression is provided, the default expression is used. If the character is already in the scene, it will update its sprite based on the `expression` parameter. | `[+amicus smile]`     | <span style="color:red;">To Do</span> |
-| `[-character]`                | Removes the specified `character` from the scene.                                                             | `[-amicus]`           | <span style="color:red;">To Do</span> |
-| `[character mv x]`           | Moves the `character` horizontally. The `x` value ranges from -50 to 50, with 0 as the center of the screen.     | `[amicus mv 25]`      | <span style="color:red;">To Do</span> |
-| `[character look direction]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right`.                         | `[amicus look left]`  | <span style="color:red;">To Do</span> |
-| `>character text`            | Specifies which `character` is speaking and their dialogue.                                                   | `>amicus Hi Marco, slept well?` | <span style="color:red;">To Do</span> |
-| `text`                       | Displays narration or inner thoughts not tied to a specific character.                                        | `You think about Amicus` | <span style="color:red;">To Do</span> |
-| `[character anim animation]` | Plays a one-time `animation` for the specified `character`.                                                   | `[amicus anim jump]`       | <span style="color:red;">To Do</span> |
-| `[character loop animation]` | Plays a looping `animation` for the `character`.                                                             | `[amicus loop idle]`  | <span style="color:red;">To Do</span> |
+| `[+character (sprite)]`   | Adds or change the sprite of a `character`. `sprite` is optional and allows loading a character with a different sprite by using it's file name. | `[+copper smile]`     | <span style="color:red;">To Do</span> |
+| `[-character]`                | Removes the specified `character` from the scene.                                                             | `[-copper]`           | <span style="color:red;">To Do</span> |
+| `[character mv <value>]`           | Moves the `character` horizontally. The `value` ranges from -50 to 50, with 0 as the center of the screen.     | `[copper mv 25]`      | <span style="color:red;">To Do</span> |
+| `[character look <direction>]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right`.                         | `[copper look left]`  | <span style="color:red;">To Do</span> |
+| `>character`                 | Specifies which `character` is speaking. Will use this character untill you specify another.                   | `>copper` | <span style="color:red;">To Do</span> |
+| `@text`                       | Displays narration or inner thoughts not tied to a specific character. WIll override > command, but not replace it | `@You think about Copper` | <span style="color:red;">To Do</span> |
+| `[character anim <animation>]` | Plays a one-time `animation` for the specified `character`.                                                   | `[bowden anim jump]`       | <span style="color:red;">To Do</span> |
+| `[character loop <animation>]` | Plays a looping `animation` for the `character`.                                                             | `[copper loop wave]`  | <span style="color:red;">To Do</span> |
 
 <br>
 
@@ -53,8 +53,8 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 
 | Command                    | Explanation                                                                | Example                 | Status             |
 |----------------------------|----------------------------------------------------------------------------|-------------------------|--------------------|
-| `[bg image]`               | Sets the background to the specified `image` from the background folder.     | `[bg house]`           | <span style="color:red;">To Do</span> |
-| `[bg anim direction speed]` | Moves the background in a specified direction (`up`, `down`, `left`, `right`) with a defined speed. | `[bg anim down 2]`           | <span style="color:red;">To Do</span> |
+| `[bg <image>]`               | Sets the background to the specified `image` from the background folder.     | `[bg forest]`           | <span style="color:red;">To Do</span> |
+| `[bg anim <direction> <speed>]` | Moves the background in a specified direction (`up`, `down`, `left`, `right`) with a defined speed. | `[bg anim down 2]`           | <span style="color:red;">To Do</span> |
 
 <br>
 
@@ -62,9 +62,9 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 
 | Command           | Explanation                                  | Example                  | Status             |
 |-------------------|----------------------------------------------|--------------------------|--------------------|
-| `[music track]`   | Plays the specified music `track`.           | `[music danger]`         | <span style="color:red;">To Do</span> |
+| `[music <track>]`   | Plays the specified music `track`.           | `[music danger]`         | <span style="color:red;">To Do</span> |
 | `[music stop]`    | Stops the current music playing.            | `[music stop]`           | <span style="color:red;">To Do</span> |
-| `[sound effect]`  | Plays a specific sound `effect` from the sound folder. | `[sound explosion]`     | <span style="color:red;">To Do</span> |
+| `[sound <effect>]`  | Plays a specific sound `effect` from the sound folder. | `[sound explosion]`     | <span style="color:red;">To Do</span> |
 
 <br>
 
@@ -72,8 +72,8 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 
 | Command              | Explanation                                                                                      | Example                  | Status             |
 |----------------------|--------------------------------------------------------------------------------------------------|--------------------------|--------------------|
-| `[+layer image Z]`    | Adds a `layer` at the specified Z-index. Layers with a negative Z go behind characters. Backgrounds don't have indices and always remain in the back. | `[+layer shadows 2]`     | <span style="color:red;">To Do</span> |
-| `[-layer image]`      | Removes a layer from the scene.                                                                  | `[-layer shadows]`        | <span style="color:red;">To Do</span> |
+| `[+layer <image> <index>]`    | Adds a layer from an `image` at the specified `index`. Layers with a negative`index go behind characters. Backgrounds don't have index and always remain in the back. | `[+layer fog 2]`     | <span style="color:red;">To Do</span> |
+| `[-layer <image>]`      | Removes a layer from the scene.                                                                  | `[-layer fog]`        | <span style="color:red;">To Do</span> |
 
 <br>
 
@@ -81,7 +81,7 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 
 | Command        | Explanation                                                                                                      | Example              | Status             |
 |----------------|------------------------------------------------------------------------------------------------------------------|----------------------|--------------------|
-| `[goto scene]` | Jump to the specified `scene`. This can be used to move to a new scene or checkpoint in the visual novel. Scenes are using .tgvn extension.         | `[goto endScene]`    | <span style="color:red;">To Do</span> |
+| `[goto <scene>]` | Jump to the specified `scene`. This can be used to move to a new scene or checkpoint in the visual novel. Scenes are using .tgvn extension.         | `[goto prologue]`    | <span style="color:red;">To Do</span> |
 
 <br>
 
@@ -91,26 +91,25 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 
 | Command            | Explanation                                                                                               | Example                | Status             |
 |--------------------|-----------------------------------------------------------------------------------------------------------|------------------------|--------------------|
-| `[choice (choices)]`         | Displays a choice menu with options for the player to select. Each option leads to a different scene or action. | `[choice "hit him", "try something", "hug him"]` | <span style="color:red;">To Do</span> |
+| `[choice [choice1, choice2, ...]]`         | Displays a `choice` menu with options for the player to select. Each option leads to a different scene or action. | `[choice "run", "hide", "fight"]` | <span style="color:red;">To Do</span> |
 
 <br>
 
 Example
 
-```
-[choice "hit him", "try something", "hug him"]
+```bash
+>Bowden
+[choice "run", "hide", "fight"]
     [case 1]
-        You choose to hit Amicus
-        >Amicus Why????
-        >Alexio Wtf are you crazy ?
-        [goto route2]
+        @You decide to run
+        The forest blurs around you as you sprint
+        [goto escapeRoute]
     [case 2]
-        You choose to try something
-        >Amicus uh ok????
-        [goto route3]
+        @You choose to hide behind a tree
+        [goto stealthRoute]
     [case 3]
-        You choose to hug Amicus
-        >Amicus maww
+        @You decide to stand your ground and fight
+        [goto battleScene]
     [end choice]
 ```
 
@@ -120,19 +119,32 @@ Example
 
 | Command               | Explanation                                                                                     | Example                   | Status             |
 |-----------------------|-------------------------------------------------------------------------------------------------|---------------------------|--------------------|
-| `[set variable value]` | Sets a `variable` to a specified `value`. This is useful for tracking player choices or game state.  | `[set love 10]`    | <span style="color:red;">To Do</span> |
-| `[change variable]`  | Increases or decreases a `variable` by a specified amount.                                                      | `[change love -5]` | <span style="color:red;">To Do</span> |
-| `[if variable condition]` | Checks if the `variable` meets a specified `condition`. If true, the following block of code is executed. | `[if player_score > 10]`  | <span style="color:red;">To Do</span> |
+| `[var <variable> <value>]` | Sets a `variable` to a specified `value`. This is useful for tracking player choices or game state. You can use + and -. | `[var courage 10]`    | <span style="color:red;">To Do</span> |
+| `[if <condition>]` | Checks if the `variable` meets a specified `condition`. If true, the following block of code is executed. | `[if courage > 5]`  | <span style="color:red;">To Do</span> |
 | `[else]`               | Executes the block of code after the `if` statement if the condition is false.                   | `[else]`                   | <span style="color:red;">To Do</span> |
 | `[endif]`             | Ends the `if` statement.                                                                          | `[end if]`                | <span style="color:red;">To Do</span> |
 
 <br>
 
+Example
+
+```bash
+>Copper
+[var trust_level 3]
+[var trust_level +2] # increase trust level
+[if trust_level >= 5]
+    @You trust Copper with your life because they have proven their loyalty in countless ways
+[else]
+    @You doesn't seem convinced yet, Copper's tail flicking nervously as they consider your actions.
+[endif]
+
+```
+
 ## Commentaries & Notes
 
 | Command  | Explanation                                  | Example             | Status             |
 |----------|----------------------------------------------|---------------------|--------------------|
-| `#`      | Marks the beginning of a comment. It is ignored during execution. | `# This is a comment` | <span style="color:red;">To Do</span> |
+| `#`      | Marks the beginning of a comment. It's ignored during execution. | `# This is a comment` | <span style="color:red;">To Do</span> |
 
 <br>
 
