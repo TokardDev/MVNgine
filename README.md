@@ -3,12 +3,6 @@
 
 TGVNgine is a simple, lightweight visual novel engine built with Godot, designed to help me quickly create and prototype 2D visual novels with more flexibility than Ren'Py.
 
-## Getting Started
-
-### Prerequisites
-- Godot Engine (version 3.5 or higher recommended).
-- Basic understanding of Godot and GDScript.
-
 ### Installation
 
 1. Clone the repository.
