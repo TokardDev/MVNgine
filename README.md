@@ -12,15 +12,19 @@ MVNgine is a simple, lightweight visual novel engine built with Godot, designed 
 
 # Documentation
 
-## File Management with `.tgvn` Files
+## File Management with `.mvn` and .`.mvscr` Files
 
 In MVNgine, all game content and story are stored in custom `.mvn` files, while additional scripts and user-defined logic are stored in `.mvscr` files. These files serve as the core structure for handling routes, scenes, characters, choices, and in-game logic.
 
-`.mvn`files represent the core narrative and story progression, containing all the text and branching choices for the game. They allow for dynamic transitions between scenes and paths, based on the player's decisions.
+- `.mvn`files represent the core story and actions, containing all the text, basic actions and branching choices for the game. They allow for dynamic transitions between scenes and paths, based on the player's decisions.
 
-`.mvscr` files are used for writing additional scripts, such as event triggers, complex character actions, better visual or sound effects, or modifying the game state with variables with more flexibility.
+- `.mvscr` files are used for writing optional scripts, such as event triggers, complex character actions, better visual or sound effects, or modifying the game state with variables with more flexibility.
 
-These files are written in a simple text format and can be easily edited to create complex branching narratives with variables, conditions, and actions. When the player makes a choice, the engine will load a new `.mvn` file to continue the story from the chosen point, and `.mvscr` files will execute custom scripts.
+<br>
+
+`.mvn` files are written in a simple text format and can be easily edited to create simple branching narratives with variables, conditions, and actions, while `.mvscr` are used for a more advanced game instructions. 
+
+When the player makes a choice, the engine will load a new `.mvn` file to continue the story from the chosen point, and `.mvscr` files will execute custom scripts.
 
 You can run `./bin/build` script to build a custom .exe/.sh/.app depending on your OS using a custom name + icon.
 
