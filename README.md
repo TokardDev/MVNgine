@@ -6,7 +6,7 @@ MVNgine is a simple, lightweight visual novel engine built with Godot, designed 
 ### Installation
 
 1. Clone the repository.
-2. (IDK) This is the first commit...
+2. IDK... his is the first commit...
 
 <br>
 
