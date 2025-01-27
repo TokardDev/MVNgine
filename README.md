@@ -1,7 +1,7 @@
-# TGVNgine
-## Tokard's Godot Visual Novel Engine
+# MVNgine
+## Modular Visual Novel Engine
 
-TGVNgine is a simple, lightweight visual novel engine built with Godot, designed to help me quickly create and prototype 2D visual novels with more flexibility than Ren'Py.
+MVNgine is a simple, lightweight visual novel engine built with Godot, designed to help quickly create and prototype 2D visual novels with more flexibility than Ren'Py.
 
 ### Installation
 
@@ -14,11 +14,15 @@ TGVNgine is a simple, lightweight visual novel engine built with Godot, designed
 
 ## File Management with `.tgvn` Files
 
-In TGVNgine, all game content and story progression are stored in custom `.tgvn` files. These files serve as the core structure for handling routes, scenes, characters, and choices in the visual novel. Each `.tgvn` file represents a segment of the story, allowing for dynamic transitions between different paths, based on the player’s decisions.
+In MVNgine, all game content and story are stored in custom `.mvn` files, while additional scripts and user-defined logic are stored in `.mvscr` files. These files serve as the core structure for handling routes, scenes, characters, choices, and in-game logic.
 
-These files are written in a simple text format and can be easily edited to create complex branching narratives with variables, conditions, and actions. When the player makes a choice, the engine will load a new `.tgvn` file to continue the story from the chosen point.
+`.mvn`files represent the core narrative and story progression, containing all the text and branching choices for the game. They allow for dynamic transitions between scenes and paths, based on the player's decisions.
 
-You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on your OS using a custom name + icon.
+`.mvscr` files are used for writing additional scripts, such as event triggers, complex character actions, better visual or sound effects, or modifying the game state with variables with more flexibility.
+
+These files are written in a simple text format and can be easily edited to create complex branching narratives with variables, conditions, and actions. When the player makes a choice, the engine will load a new `.mvn` file to continue the story from the chosen point, and `.mvscr` files will execute custom scripts.
+
+You can run `./bin/build` script to build a custom .exe/.sh/.app depending on your OS using a custom name + icon.
 
 ## Character Management
 
@@ -29,7 +33,7 @@ You can run ``./bin/build`` script to build a custom .exe/.sh/.app depending on 
 | `[character mv <value>]`           | Moves the `character` horizontally. The `value` ranges from -50 to 50, with 0 as the center of the screen.     | `[copper mv 25]`      | <span style="color:red;">To Do</span> |
 | `[character look <direction>]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right`.                         | `[copper look left]`  | <span style="color:red;">To Do</span> |
 | `>character`                 | Specifies which `character` is speaking. Will use this character untill you specify another.                   | `>copper` | <span style="color:red;">To Do</span> |
-| `@text`                       | Displays narration or inner thoughts not tied to a specific character. WIll override > command, but not replace it | `@You think about Copper` | <span style="color:red;">To Do</span> |
+| `text`                       | Displays narration or inner thoughts not tied to a specific character. WIll override > command, but not replace it | `You think about Copper` | <span style="color:red;">To Do</span> |
 | `[character anim <animation>]` | Plays a one-time `animation` for the specified `character`.                                                   | `[bowden anim jump]`       | <span style="color:red;">To Do</span> |
 | `[character loop <animation>]` | Plays a looping `animation` for the `character`.                                                             | `[copper loop wave]`  | <span style="color:red;">To Do</span> |
 
@@ -95,14 +99,15 @@ Example
 >Bowden
 [choice "run", "hide", "fight"]
     [case 1]
-        @You decide to run
+        You decide to run
         The forest blurs around you as you sprint
         [goto escapeRoute]
     [case 2]
-        @You choose to hide behind a tree
+        You choose to hide behind a tree
         [goto stealthRoute]
     [case 3]
         @You decide to stand your ground and fight
+        >Copper here we go !
         [goto battleScene]
     [end choice]
 ```
@@ -127,9 +132,9 @@ Example
 [var trust_level 3]
 [var trust_level +2] # increase trust level
 [if trust_level >= 5]
-    @You trust Copper with your life because they have proven their loyalty in countless ways
+    You trust Copper with your life because they have proven their loyalty in countless ways
 [else]
-    @You doesn't seem convinced yet, Copper's tail flicking nervously as they consider your actions.
+    You doesn't seem convinced yet, Copper's tail flicking nervously as they consider your actions.
 [endif]
 
 ```
