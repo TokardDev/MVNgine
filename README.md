@@ -40,7 +40,8 @@ You can run `./bin/build` script to build a custom .exe/.sh/.app depending on yo
 | `[character mv <value>]`           | Moves the `character` horizontally. The `value` ranges from -50 to 50, with 0 as the center of the screen.     | `[copper mv 25]`      | <span style="color:red;">To Do</span> |
 | `[character look <direction>]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right`.                         | `[copper look left]`  | <span style="color:red;">To Do</span> |
 | `>character`                 | Specifies which `character` is speaking. Will use this character untill you specify another.                   | `>copper` | <span style="color:red;">To Do</span> |
-| `text`                       | Displays narration or inner thoughts not tied to a specific character. WIll override > command, but not replace it | `You think about Copper` | <span style="color:red;">To Do</span> |
+| `text`                 | Talk with the specified character.                   | `Hi, how's going?` | <span style="color:red;">To Do</span> |
+| `@text`                       | Displays narration or inner thoughts not tied to a specific character. WIll override > command, but not replace it | `@You think about Copper` | <span style="color:red;">To Do</span> |
 | `[character anim <animation>]` | Plays a one-time `animation` for the specified `character`.                                                   | `[bowden anim jump]`       | <span style="color:red;">To Do</span> |
 | `[character loop <animation>]` | Plays a looping `animation` for the `character`.                                                             | `[copper loop wave]`  | <span style="color:red;">To Do</span> |
 
