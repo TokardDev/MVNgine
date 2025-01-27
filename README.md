@@ -18,7 +18,8 @@ In MVNgine, all game content and story are stored in custom `.mvn` files, while 
 
 - `.mvn`files represent the core story and actions, containing all the text, basic actions and branching choices for the game. They allow for dynamic transitions between scenes and paths, based on the player's decisions.
 
-[will be implemented later]
+<br>
+[will be implemented later :]
 - `.mvscr` files are used for writing optional scripts, such as event triggers, complex character actions, better visual or sound effects, or modifying the game state with variables with more flexibility.
 
 <br>
