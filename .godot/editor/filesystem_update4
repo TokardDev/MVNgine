@@ -1,3 +1,9 @@
 res://engine/main.tscn
 res://engine/main.gd
 res://engine/core/parser/mvn_parser.gd
+res://engine/core/command_executor.gd
+res://engine/core/story_manager.gd
+res://engine/core/game_state.gd
+res://engine/core/command_executor/command_executor.gd
+res://engine/core/story_manager/story_manager.gd
+res://engine/ui/text_box.tscn

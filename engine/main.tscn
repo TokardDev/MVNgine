@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://xilg16e7e4wi"]
+[gd_scene load_steps=3 format=3 uid="uid://xilg16e7e4wi"]
 
 [ext_resource type="Script" path="res://engine/main.gd" id="1_4jfvs"]
+[ext_resource type="PackedScene" uid="uid://fj7l6783vgm6" path="res://engine/ui/text_box.tscn" id="2_afuks"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4jfvs")
+
+[node name="TextBox" parent="." instance=ExtResource("2_afuks")]

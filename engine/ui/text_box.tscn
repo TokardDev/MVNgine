@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://fj7l6783vgm6"]
+[gd_scene load_steps=5 format=3 uid="uid://fj7l6783vgm6"]
+
+[ext_resource type="FontFile" uid="uid://b4s5qgh3akfu8" path="res://engine/ui/fonts/Poppins-Regular.ttf" id="1_mpi37"]
+[ext_resource type="FontFile" uid="uid://y0aa1bejfw6b" path="res://engine/ui/fonts/Poppins-Bold.ttf" id="2_5v21d"]
+
+[sub_resource type="Theme" id="Theme_cubni"]
+default_font = ExtResource("1_mpi37")
+default_font_size = 21
+
+[sub_resource type="Theme" id="Theme_cdc0s"]
+default_font = ExtResource("2_5v21d")
+default_font_size = 28
 
 [node name="TextBox" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="main_text" type="RichTextLabel" parent="Control"]
+offset_left = 221.0
+offset_top = 449.0
+offset_right = 961.0
+offset_bottom = 632.0
+theme = SubResource("Theme_cubni")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+scroll_active = false
+autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+offset_left = 221.0
+offset_top = 395.0
+offset_right = 919.0
+offset_bottom = 457.0
+theme = SubResource("Theme_cdc0s")
+text = "Tokard"

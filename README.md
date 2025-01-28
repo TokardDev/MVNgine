@@ -35,8 +35,8 @@ You can run `./bin/build` script to build a custom .exe/.sh/.app depending on yo
 
 | Command                      | Explanation                                                                                                    | Example               | Status             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------|--------------------|
-| `[+character (sprite)]`   | Adds or change the sprite of a `character`. `sprite` is optional and allows loading a character with a different sprite by using it's file name. | `[+copper smile]`     | <span style="color:red;">To Do</span> |
-| `[-character]`                | Removes the specified `character` from the scene.                                                             | `[-copper]`           | <span style="color:red;">To Do</span> |
+| `[+ character (sprite)]`   | Adds or change the sprite of a `character`. `sprite` is optional and allows loading a character with a different sprite by using it's file name. | `[+ copper smile]`     | <span style="color:red;">To Do</span> |
+| `[- character]`                | Removes the specified `character` from the scene.                                                             | `[- copper]`           | <span style="color:red;">To Do</span> |
 | `[character mv <value>]`           | Moves the `character` horizontally. The `value` ranges from -50 to 50, with 0 as the center of the screen.     | `[copper mv 25]`      | <span style="color:red;">To Do</span> |
 | `[character look <direction>]` | Changes the `direction` the character is facing. `Direction` can be `left` or `right`.                         | `[copper look left]`  | <span style="color:red;">To Do</span> |
 | `>character`                 | Specifies which `character` is speaking. Will use this character untill you specify another.                   | `>copper` | <span style="color:red;">To Do</span> |
