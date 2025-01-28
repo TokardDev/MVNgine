@@ -12,16 +12,16 @@ MVNgine is a simple, lightweight visual novel engine built with Godot, designed 
 
 # Documentation
 
-## File Management with `.mvn` and `.mvscr` Files
+## File Management with `.mvn` and `.gd` Files
 
-In MVNgine, all game content and story are stored in custom `.mvn` files, while additional scripts and user-defined logic are stored in `.mvscr` files. These files serve as the core structure for handling routes, scenes, characters, choices, and in-game logic.
+In MVNgine, all game content and story are stored in custom `.mvn` files, while additional scripts and user-defined logic are stored in `.gd` files. These files serve as the core structure for handling routes, scenes, characters, choices, and in-game logic.
 
 - `.mvn`files represent the core story and actions, containing all the text, basic actions and branching choices for the game. They allow for dynamic transitions between scenes and paths, based on the player's decisions.
 
 <br>
 
 [will be implemented later :]
-- `.mvscr` files are used for writing optional scripts, such as event triggers, complex character actions, better visual or sound effects, or modifying the game state with variables with more flexibility.
+- `.gd` files are used for writing optional scripts, such as event triggers, complex character actions, better visual or sound effects, or modifying the game state with variables with more flexibility.
 
 <br>
 
