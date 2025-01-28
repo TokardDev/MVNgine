@@ -1,0 +1,3 @@
+res://engine/main.tscn
+res://engine/main.gd
+res://engine/core/parser/mvn_parser.gd

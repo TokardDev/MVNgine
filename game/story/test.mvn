@@ -1,0 +1,5 @@
+[bg forest]
+>Copper
+Hi, how's going?
+@You think about Copper
+[choice "run", "hide", "fight"]
