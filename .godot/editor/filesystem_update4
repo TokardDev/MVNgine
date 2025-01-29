@@ -7,3 +7,5 @@ res://engine/core/game_state.gd
 res://engine/core/command_executor/command_executor.gd
 res://engine/core/story_manager/story_manager.gd
 res://engine/ui/text_box.tscn
+res://engine/ui/ui_manager.gd
+res://engine/resources/scene_manager.gd

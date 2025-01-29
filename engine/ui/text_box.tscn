@@ -1,59 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://fj7l6783vgm6"]
+[gd_scene load_steps=6 format=3 uid="uid://fj7l6783vgm6"]
 
+[ext_resource type="Script" path="res://engine/ui/ui_manager.gd" id="1_5g7pn"]
 [ext_resource type="FontFile" uid="uid://b4s5qgh3akfu8" path="res://engine/ui/fonts/Poppins-Regular.ttf" id="1_mpi37"]
 [ext_resource type="FontFile" uid="uid://y0aa1bejfw6b" path="res://engine/ui/fonts/Poppins-Bold.ttf" id="2_5v21d"]
 
 [sub_resource type="Theme" id="Theme_cubni"]
 default_font = ExtResource("1_mpi37")
-default_font_size = 22
+default_font_size = 50
 
 [sub_resource type="Theme" id="Theme_cdc0s"]
 default_font = ExtResource("2_5v21d")
-default_font_size = 28
+default_font_size = 50
 
 [node name="TextBox" type="Node2D"]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("1_5g7pn")
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_top = 0.75
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -575.5
-offset_top = -219.0
-offset_right = 575.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="main_text" type="RichTextLabel" parent="HUD/Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.15
+anchor_right = 0.75
 anchor_bottom = 1.0
-offset_left = -376.5
-offset_top = -163.0
-offset_right = 377.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = SubResource("Theme_cubni")
 bbcode_enabled = true
-text = "Woa je suis le tokard de fou de malade de fou malade !"
+text = "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet "
 scroll_active = false
 autowrap_mode = 2
 
 [node name="character_name" type="RichTextLabel" parent="HUD/Control"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -400.0
-offset_right = 400.0
-offset_bottom = 62.0
+anchors_preset = -1
+anchor_left = 0.234
+anchor_top = -0.1
+anchor_right = 0.75
+anchor_bottom = 0.393
 grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_cdc0s")
 text = "Tokard"
