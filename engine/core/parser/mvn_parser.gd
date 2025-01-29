@@ -46,7 +46,7 @@ func parse_line(line: String) -> Dictionary:
 		result["type"] = "command"
 		result["content"] = line.trim_prefix("[").trim_suffix("]")
 	elif line.begins_with(">"):
-		result["type"] = "character_dialogue"
+		result["type"] = "change_talking"
 		result["character"] = line.trim_prefix(">")
 	elif line.begins_with("@"):
 		result["type"] = "narration"

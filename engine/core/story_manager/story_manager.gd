@@ -22,11 +22,11 @@ func _process_parsed_line(parsed: Dictionary) -> void:
 			var args = parts.slice(1) if parts.size() > 1 else []
 			command_executor.execute_command(command, args)
 		
-		"character_dialogue":
+		"change_talking":
 			command_executor.current_talking_character = parsed["character"]
 		
 		"text":
-			command_executor.handle_dialogue(command_executor.current_talking_character, parsed["text"])
+			command_executor.handle_dialogue(parsed["text"])
 		
 		"narration":
 			command_executor.handle_narration(parsed["text"])

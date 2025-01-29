@@ -15,7 +15,6 @@ default_font_size = 50
 [node name="TextBox" type="Node2D"]
 
 [node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("1_5g7pn")
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
@@ -24,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5g7pn")
 
 [node name="main_text" type="RichTextLabel" parent="HUD/Control"]
 layout_mode = 1
@@ -36,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cubni")
 bbcode_enabled = true
-text = "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet "
+text = "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet "
 scroll_active = false
 autowrap_mode = 2
 

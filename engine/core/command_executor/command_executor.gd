@@ -2,6 +2,7 @@ extends RefCounted
 
 var current_talking_character: String = ""
 var main = preload("res://engine/main.gd").new()
+var ui_manager = preload("res://engine/ui/ui_manager.gd").new()
 
 func execute_command(command: String, args: Array) -> void:
 	match command:
@@ -25,9 +26,13 @@ func execute_command(command: String, args: Array) -> void:
 			if command in main.characters:
 				print(args, " on ", command)
 
-func handle_dialogue(character: String, text: String) -> void:
-	current_talking_character = character
-	print(character + " : " + text)
+func handle_dialogue(text: String) -> void:
+	ui_manager.display_text(text)
+	print("handling text")
+
+func change_talking_character(name: String) -> void:
+	current_talking_character = name
+	ui_manager.change_talking(current_talking_character)
 
 func handle_narration(text: String) -> void:
 	print("Narrateur : " + text)
