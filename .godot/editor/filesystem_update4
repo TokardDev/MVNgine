@@ -1,2 +1,4 @@
-res://engine/main.tscn
 res://engine/ui/text_box.tscn
+res://engine/core/command_executor/command_executor.gd
+res://engine/main.tscn
+res://engine/ui/ui_manager.gd

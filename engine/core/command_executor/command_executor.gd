@@ -28,7 +28,6 @@ func execute_command(command: String, args: Array) -> void:
 
 func handle_dialogue(text: String) -> void:
 	ui_manager.display_text(text)
-	print("handling text")
 
 func change_talking_character(name: String) -> void:
 	current_talking_character = name
