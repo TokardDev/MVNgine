@@ -52,6 +52,7 @@ You can run `./bin/build` script to build a custom .exe/.sh/.app depending on yo
 | Command       | Explanation                                                         | Example           | Status             |
 |---------------|---------------------------------------------------------------------|-------------------|--------------------|
 | `[clear]`     | Clears all elements from the scene, including characters, music, and background. | `[clear]`         | <span style="color:red;">To Do</span> |
+| `[transition <color> <time>]`     | Make a transition before displaying the next text. `color` : can use hex color or color name, `time` in ms | `[transition black 1000]`         | <span style="color:red;">To Do</span> |
 
 <br>
 
