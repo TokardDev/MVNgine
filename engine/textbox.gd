@@ -7,12 +7,13 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func update_text(text: String) -> void:
 	$MainText.text = text
-	
+
+
 func update_talking(character_name: String) -> void:
 	$Name.text = character_name
