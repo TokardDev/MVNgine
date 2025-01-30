@@ -1,5 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bab0lks7jxo51"]
+[gd_scene load_steps=8 format=3 uid="uid://bab0lks7jxo51"]
 
+[ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
+[ext_resource type="Script" path="res://engine/main.gd" id="1_n7n2p"]
 [ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
 [ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
 
@@ -22,6 +24,7 @@ default_font = SubResource("FontFile_62qua")
 default_font_size = 50
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_n7n2p")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -32,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0vldb")
 
 [node name="MainText" type="RichTextLabel" parent="UI/textbox"]
 layout_mode = 1
