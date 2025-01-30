@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bab0lks7jxo51"]
+[gd_scene load_steps=9 format=3 uid="uid://bab0lks7jxo51"]
 
 [ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
-[ext_resource type="Script" path="res://engine/main.gd" id="1_n7n2p"]
+[ext_resource type="Script" path="res://engine/main.gd" id="1_44bt7"]
+[ext_resource type="Script" path="res://engine/command_processor.gd" id="1_ag767"]
 [ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
 [ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
 
@@ -24,11 +25,14 @@ default_font = SubResource("FontFile_62qua")
 default_font_size = 50
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_n7n2p")
+script = ExtResource("1_44bt7")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="Scene" type="Node2D" parent="."]
+script = ExtResource("1_ag767")
 
-[node name="textbox" type="TextureRect" parent="UI"]
+[node name="UI" type="CanvasLayer" parent="Scene"]
+
+[node name="textbox" type="TextureRect" parent="Scene/UI"]
 anchors_preset = -1
 anchor_top = 0.7
 anchor_right = 1.0
@@ -37,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0vldb")
 
-[node name="MainText" type="RichTextLabel" parent="UI/textbox"]
+[node name="MainText" type="RichTextLabel" parent="Scene/UI/textbox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -51,7 +55,7 @@ text = "Skibidi sigma boy, rizzin' through the FYP, flexin' on the haters, sus v
 scroll_active = false
 script = ExtResource("1_r5024")
 
-[node name="Name" type="RichTextLabel" parent="UI/textbox"]
+[node name="Name" type="RichTextLabel" parent="Scene/UI/textbox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.225
@@ -64,10 +68,10 @@ text = "Tokard"
 scroll_active = false
 script = ExtResource("2_8pi5w")
 
-[node name="Background" type="ParallaxBackground" parent="."]
+[node name="Background" type="ParallaxBackground" parent="Scene"]
 
-[node name="Elements" type="Node2D" parent="."]
+[node name="Elements" type="Node2D" parent="Scene"]
 
-[node name="Characters" type="Node2D" parent="Elements"]
+[node name="Characters" type="Node2D" parent="Scene/Elements"]
 
-[node name="Layers" type="Node2D" parent="Elements"]
+[node name="Layers" type="Node2D" parent="Scene/Elements"]
