@@ -10,8 +10,6 @@ func _ready() -> void:
 	file_reader = mvn_parser_script.new()
 	cmd_executor = cmd_executor_script.new()
 	file_reader.load_file("res://game/story/test.mvn")
-	$Scene/UI/textbox.update_text("Woa")
-	$Scene/UI/textbox.update_talking("Orma")
 	read_lines()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,4 +42,8 @@ func _process_parsed_line(parsed: Dictionary) -> void:
 		"narration":
 			$Scene/UI/textbox.update_text(parsed["text"], true)
 			
-	
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			read_lines()
