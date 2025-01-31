@@ -7,7 +7,7 @@ func execute_command(command: String, args: Array) -> void:
 		"bg":
 			# Exemple : [bg forest]
 			#_change_background(args[0])
-			print("changing background : ", args)
+			print("changing background : ", args[0])
 		
 		"music":
 			# Exemple : [music danger]

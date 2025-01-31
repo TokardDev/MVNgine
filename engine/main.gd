@@ -31,7 +31,10 @@ func _process_parsed_line(parsed: Dictionary) -> void:
 			var parts = parsed["content"].split(" ")
 			var command = parts[0]
 			var args = parts.slice(1) if parts.size() > 1 else []
-			cmd_executor.execute_command(command, args)
+			print(command)
+			#cmd_executor.execute_command(command, args)
+			if command == "bg":
+				$Scene/UI/Background.texture = load("res://game/backgrounds/"+args[0]+".jpg")
 		
 		"character_dialogue":
 			$Scene/UI/textbox.update_talking(parsed["character"])

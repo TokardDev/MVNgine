@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bab0lks7jxo51"]
+[gd_scene load_steps=12 format=3 uid="uid://bab0lks7jxo51"]
 
 [ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
 [ext_resource type="Script" path="res://engine/main.gd" id="1_44bt7"]
 [ext_resource type="Script" path="res://engine/command_processor.gd" id="1_ag767"]
 [ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
 [ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
+[ext_resource type="Script" path="res://engine/ui.gd" id="3_etti1"]
+[ext_resource type="Script" path="res://engine/background.gd" id="6_vwg2i"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_eulwt"]
 
@@ -33,6 +35,7 @@ script = ExtResource("1_44bt7")
 script = ExtResource("1_ag767")
 
 [node name="UI" type="CanvasLayer" parent="Scene"]
+script = ExtResource("3_etti1")
 
 [node name="textbox" type="TextureRect" parent="Scene/UI"]
 anchors_preset = -1
@@ -77,7 +80,13 @@ fit_content = true
 scroll_active = false
 script = ExtResource("2_8pi5w")
 
-[node name="Background" type="ParallaxBackground" parent="Scene"]
+[node name="Background" type="TextureRect" parent="Scene/UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_vwg2i")
 
 [node name="Elements" type="Node2D" parent="Scene"]
 
