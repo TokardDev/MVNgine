@@ -1,84 +1,36 @@
 [bg city_night]
 [music ambient_city]
-[+ Copper smile]
->Copper  
+[+ Bowden smile]
+>Bowden  
 Hey, it's been a while since we walked together like this.  
-[Copper mv 15]  
-[Copper look right]  
+[Bowden mv 15]  
+[Bowden look right]  
 Look at that... the city lights are beautiful tonight, don't you think?  
 
 @You nod, feeling a slight chill in the air.  
-[bg anim up 1]
 
 [+ Bowden serious]
->Bowden  
 You seem distracted. Is everything okay?  
 
-@You hesitate, then decide to speak your mind.  
+@You hesitate, then decide to speak your mind.
+>Copper
+Uh yeah, sorry, I was thinking.
+>Bowden
+Are you alright ? 
 [choice "Yes, I'm fine", "No, something's on my mind", "Let's not talk about it"]
     [case 1]
-        >Copper  
+        >Bowden  
         Oh, good. For a moment, I thought you were upset with me.  
         [goto calmScene]
     [case 2]
-        >Copper  
-        You know you can tell us anything, right?  
         >Bowden  
-        We're here for you.  
+        You know you can tell us anything, right?  
+        >Copper  
+        Yeah, I know...
         [goto comfortScene]
     [case 3]
-        >Copper  
+        >Bowden  
         Alright, if that's what you want.  
         @The silence feels heavy as you all keep walking.  
         [goto quietScene]
     [end choice]
-
-[clear]
-[transition black 1000]
-[bg forest_night]
-[music peaceful_forest]
-@The group has moved away from the city and is now deep in the forest, the moonlight filtering through the trees.  
-
-[+ Copper]
-[Copper loop smile]
->Copper  
-I love it here. It's so peaceful, don't you think?  
-
-[+ Bowden]
->Bowden  
-It's quiet... too quiet.  
-[Copper anim laugh]
->Bowden  
-I'm serious!  
-
-[var courage 5]
-[var courage +3]
-[if courage >= 8]
-    >Copper  
-    Wow, you're really brave to laugh in a place like this.  
-[else]
-    >Copper  
-    I can tell you're uneasy, but it's okay. We've got your back.  
-[endif]
-
-[sound rustle]
-@A sudden rustling sound breaks the silence.  
-[Copper look left]
-[+layer shadow 2]
->Copper  
-Did you hear that?  
-
-[choice "Investigate", "Stay still", "Run"]
-    [case 1]
-        >Bowden  
-        Let's check it out. Be ready for anything.  
-        [goto investigateScene]
-    [case 2]
-        @You decide to stay still, barely breathing as you listen.  
-        [goto stealthScene]
-    [case 3]
-        >Copper  
-        Running might not be the best idea, but... okay!  
-        [goto escapeScene]
-    [end choice]
-
