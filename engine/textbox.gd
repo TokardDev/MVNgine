@@ -16,25 +16,23 @@ var character_colors: Dictionary
 func _ready() -> void:
 	$".".texture = load("res://game/ui/textbar.png")
 	load_character_colors("res://game/characters/characters.json")
+	$MainText.add_theme_font_override("italics_font", italic_font)
+	$MainText.add_theme_font_override("normal_font", regular_font)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 
-func update_text(text: String, narr: bool = false) -> void:
-	if narr:
-		$Name.text = ""
-		$MainText.add_theme_font_override("normal_font", italic_font)
-	elif $Name.text == "":
-		update_talking(current_talking)
-		$MainText.add_theme_font_override("normal_font", regular_font)
+func update_text(text: String) -> void:
 	$MainText.text = text
 
+func update_talking() -> void:
+	$Name.text = current_talking
 
-func update_talking(character_name: String) -> void:
+
+func change_talking(character_name: String) -> void:
 	current_talking = character_name
-	$MainText.add_theme_font_override("normal_font", regular_font)
 	if character_colors.has(character_name):
 		var color = Color(character_colors[character_name])
 		$Name.modulate = color

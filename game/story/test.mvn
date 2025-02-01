@@ -1,36 +1,50 @@
-[bg mountain]
-[music ambient_city]
-[+ Bowden smile]
+[bg forest]
+[music mysterious_forest]
+[+ Bowden curious]
 >Bowden  
-Hey, it's been a while since we walked together like this.  
-[Bowden mv 15]  
-[Bowden look right]  
-Look at that... the city lights are beautiful tonight, don't you think?  
+So, this is the path they told us about.  
+[Bowden mv 10]  
+[Bowden look left]  
+Doesn’t look too dangerous... yet.  
 
-@You nod, feeling a slight chill in the air.  
+@You glance around, the dense forest swallowing the last bits of sunlight.
+
+[+ Copper skeptical]
+>Copper  
+You say that now, but every scary story starts exactly like this.  
+[Copper arms_crossed]  
+Why are we even doing this again?  
+
+[+ Bowden smirk]
+>Bowden  
+Because I’m not backing down from a dare.  
+[Bowden mv 15]  
+[Bowden grin]  
+And because you didn’t want me to do this alone.  
+
+[bg ruins]
+[music tense_drone]
+[Copper look uneasy]
+>Copper  
+Yeah, well, now I’m regretting that decision.  
+[Copper mv 10]  
+Why does it feel like we’re being watched?  
 
 [+ Bowden serious]
-You seem distracted. Is everything okay?  
+>Bowden  
+You’re imagining things... probably.  
+[Bowden look ahead]  
+Let’s keep moving. The ruins are just up ahead.  
 
-@You hesitate, then decide to speak your mind.
->Copper
-Uh yeah, sorry, I was thinking.
->Bowden
-Are you alright ? 
-[choice "Yes, I'm fine", "No, something's on my mind", "Let's not talk about it"]
-    [case 1]
-        >Bowden  
-        Oh, good. For a moment, I thought you were upset with me.  
-        [goto calmScene]
-    [case 2]
-        >Bowden  
-        You know you can tell us anything, right?  
-        >Copper  
-        Yeah, I know...
-        [goto comfortScene]
-    [case 3]
-        >Bowden  
-        Alright, if that's what you want.  
-        @The silence feels heavy as you all keep walking.  
-        [goto quietScene]
-    [end choice]
+@A sudden noise echoes through the trees, and you both freeze.
+
+[+ Copper alarmed]
+>Copper  
+Okay, what  [i]was[/i] that?  
+
+[+ Bowden uneasy]
+>Bowden  
+...It’s probably just the wind.  
+
+@But in the back of your mind, you both know it wasn’t.
+

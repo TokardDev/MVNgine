@@ -6,8 +6,8 @@ func execute_command(command: String, args: Array) -> void:
 	match command:
 		"bg":
 			# Exemple : [bg forest]
-			#_change_background(args[0])
-			print("changing background : ", args[0])
+			#$UI.change_background("res://game/story/"+args[0]+"png")
+			print("changing background : ", args)
 		
 		"music":
 			# Exemple : [music danger]

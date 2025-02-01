@@ -31,19 +31,22 @@ func _process_parsed_line(parsed: Dictionary) -> void:
 			var parts = parsed["content"].split(" ")
 			var command = parts[0]
 			var args = parts.slice(1) if parts.size() > 1 else []
-			print(command)
 			#cmd_executor.execute_command(command, args)
 			if command == "bg":
-				$Scene/UI/Background.texture = load("res://game/backgrounds/"+args[0]+".jpg")
+				$Scene/UI/Background.texture = load("res://game/backgrounds/"+args[0]+".png")
 		
 		"character_dialogue":
-			$Scene/UI/textbox.update_talking(parsed["character"])
+			$Scene/UI/textbox.change_talking(parsed["character"])
 		
 		"text":
+			$Scene/UI/textbox.update_talking()
 			$Scene/UI/textbox.update_text(parsed["text"])
+			$Scene/UI/textbox/MainText.modulate = "#ffffff"
 		
 		"narration":
-			$Scene/UI/textbox.update_text(parsed["text"], true)
+			$Scene/UI/textbox/Name.text = ""
+			$Scene/UI/textbox.update_text("[i]"+parsed["text"]+"[/i]")
+			$Scene/UI/textbox/MainText.modulate = "#9c9c9c"
 			
 
 func _input(event):
