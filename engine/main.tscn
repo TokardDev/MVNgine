@@ -2,11 +2,41 @@
 
 [ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
 [ext_resource type="Script" path="res://engine/main.gd" id="1_44bt7"]
-[ext_resource type="Script" path="res://engine/command_processor.gd" id="1_ag767"]
 [ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
 [ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
 [ext_resource type="Script" path="res://engine/ui.gd" id="3_etti1"]
-[ext_resource type="Script" path="res://engine/background.gd" id="6_vwg2i"]
+
+[sub_resource type="GDScript" id="GDScript_8fksh"]
+script/source = "extends Node2D
+
+var characters = {}
+
+func execute_command(command: String, args: Array) -> void:
+	match command:
+		\"bg\":
+			# Exemple : [bg forest]
+			#$UI.change_background(\"res://game/story/\"+args[0]+\"png\")
+			print(\"changing background : \", args)
+		
+		\"music\":
+			# Exemple : [music danger]
+			print(\"playing music : \", args)
+			#_play_music(args[0])
+		
+		\"choice\":
+			# Exemple : [choice \"run\", \"hide\", \"fight\"]
+			#_show_choices(args)
+			print(\"displaying choice : \", args)
+
+		\"+\":
+			# Ajouter un personnage à la scène
+			print(\"adding character : \", args)
+			#_add_character(args[0])
+		
+		_: # Si une autre commande
+			if command in characters:
+				print(args, \" on \", command)
+"
 
 [sub_resource type="ImageTexture" id="ImageTexture_eulwt"]
 
@@ -28,11 +58,25 @@ default_font = SubResource("FontFile_62qua")
 [sub_resource type="Theme" id="Theme_kfdt7"]
 default_font_size = 50
 
+[sub_resource type="GDScript" id="GDScript_ftb86"]
+script/source = "extends TextureRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_44bt7")
 
 [node name="Scene" type="Node2D" parent="."]
-script = ExtResource("1_ag767")
+script = SubResource("GDScript_8fksh")
 
 [node name="UI" type="CanvasLayer" parent="Scene"]
 script = ExtResource("3_etti1")
@@ -87,7 +131,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("6_vwg2i")
+script = SubResource("GDScript_ftb86")
 
 [node name="Elements" type="Node2D" parent="Scene"]
 

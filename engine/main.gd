@@ -2,13 +2,10 @@ extends Node2D
 
 var mvn_parser_script = load("res://engine/mvn_parser.gd")
 var file_reader : RefCounted
-var cmd_executor_script = load("res://engine/command_processor.gd")
-var cmd_executor : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	file_reader = mvn_parser_script.new()
-	cmd_executor = cmd_executor_script.new()
 	file_reader.load_file("res://game/story/test.mvn")
 	read_lines()
 
@@ -31,7 +28,6 @@ func _process_parsed_line(parsed: Dictionary) -> void:
 			var parts = parsed["content"].split(" ")
 			var command = parts[0]
 			var args = parts.slice(1) if parts.size() > 1 else []
-			#cmd_executor.execute_command(command, args)
 			if command == "bg":
 				$Scene/UI/Background.texture = load("res://game/backgrounds/"+args[0]+".png")
 		
