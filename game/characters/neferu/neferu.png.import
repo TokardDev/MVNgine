@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q1hx4p5l3shx"
-path="res://.godot/imported/ami-surprised.png-bd72f3e4487db25a57d96ff1f652e58d.ctex"
+uid="uid://f1c0qy31kctt"
+path="res://.godot/imported/neferu.png-d57312520a58698467f2d6a1110d041f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/characters/amicus/ami-surprised.png"
-dest_files=["res://.godot/imported/ami-surprised.png-bd72f3e4487db25a57d96ff1f652e58d.ctex"]
+source_file="res://game/characters/neferu/neferu.png"
+dest_files=["res://.godot/imported/neferu.png-d57312520a58698467f2d6a1110d041f.ctex"]
 
 [params]
 

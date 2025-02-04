@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dommwmx1ax5p3"
-path="res://.godot/imported/nef-c-serious.png-50791b9382e74200bf79d020bee28466.ctex"
+uid="uid://twlxo4kd0w0s"
+path="res://.godot/imported/copper.png-5bd95950a4bc70931a48b09ca1ccb066.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/characters/neferu/nef-c-serious.png"
-dest_files=["res://.godot/imported/nef-c-serious.png-50791b9382e74200bf79d020bee28466.ctex"]
+source_file="res://game/characters/copper/copper.png"
+dest_files=["res://.godot/imported/copper.png-5bd95950a4bc70931a48b09ca1ccb066.ctex"]
 
 [params]
 

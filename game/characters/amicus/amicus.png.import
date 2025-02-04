@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://10d60tn5yxbg"
-path="res://.godot/imported/nef-f-talking-surprised-u.png-0ede4baff40114560232797f0382858b.ctex"
+uid="uid://svp8v5os4rm6"
+path="res://.godot/imported/amicus.png-d9eb861b7e8b6d66928c2ab1d1601a78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/characters/neferu/nef-f-talking-surprised-u.png"
-dest_files=["res://.godot/imported/nef-f-talking-surprised-u.png-0ede4baff40114560232797f0382858b.ctex"]
+source_file="res://game/characters/amicus/amicus.png"
+dest_files=["res://.godot/imported/amicus.png-d9eb861b7e8b6d66928c2ab1d1601a78.ctex"]
 
 [params]
 
