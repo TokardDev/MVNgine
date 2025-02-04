@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bab0lks7jxo51"]
+[gd_scene load_steps=13 format=3 uid="uid://bab0lks7jxo51"]
 
 [ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
 [ext_resource type="Script" path="res://engine/main.gd" id="1_44bt7"]
 [ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
 [ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
 [ext_resource type="Script" path="res://engine/ui.gd" id="3_etti1"]
+[ext_resource type="Script" path="res://engine/characters.gd" id="6_kodfg"]
 
 [sub_resource type="GDScript" id="GDScript_8fksh"]
 script/source = "extends Node2D
@@ -132,6 +133,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_ftb86")
+
+[node name="characters" type="Node2D" parent="Scene/UI"]
+script = ExtResource("6_kodfg")
 
 [node name="Elements" type="Node2D" parent="Scene"]
 
