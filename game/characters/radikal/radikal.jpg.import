@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhfeh6jx7fpqk"
-path="res://.godot/imported/bru-embarrassed.png-2632492129bde502e2c4dca841544628.ctex"
+uid="uid://djwsvcegny0c7"
+path="res://.godot/imported/radikal.jpg-b9528a62027fd8608f426264173170a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/characters/brunis/bru-embarrassed.png"
-dest_files=["res://.godot/imported/bru-embarrassed.png-2632492129bde502e2c4dca841544628.ctex"]
+source_file="res://game/characters/radikal/radikal.jpg"
+dest_files=["res://.godot/imported/radikal.jpg-b9528a62027fd8608f426264173170a1.ctex"]
 
 [params]
 

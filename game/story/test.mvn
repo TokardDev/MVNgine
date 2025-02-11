@@ -1,11 +1,10 @@
 [bg forest]
 [music mysterious_forest]
-[+ Bowden curious]
->Bowden  
-So, this is the path they told us about.  
-[Bowden mv 10]  
-[Bowden look left]  
-Doesn’t look too dangerous... yet.  
+[+ Copper copper -20]
+>Radikal  
+So, this is the path they told us about. 
+[+ radikal radikal 10] 
+I am not a png :c   
 
 @You glance around, the dense forest swallowing the last bits of sunlight.
 
@@ -15,11 +14,11 @@ You say that now, but every scary story starts exactly like this.
 [Copper arms_crossed]  
 Why are we even doing this again?  
 
-[+ Bowden smirk]
+[+ radikal smirk]
 >Bowden  
 Because I’m not backing down from a dare.  
-[Bowden mv 15]  
-[Bowden grin]  
+[radikal mv 15]  
+[radikal grin]  
 And because you didn’t want me to do this alone.  
 
 [bg ruins]

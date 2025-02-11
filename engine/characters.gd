@@ -1,9 +1,9 @@
 extends Node2D
 
-func _ready():
-	var viewport_size = get_viewport().get_size()
+var viewport_size
 
-	add_character(-15, 1, "Copper", Color(1, 0, 0), viewport_size)
+func _ready() -> void:
+	viewport_size = get_viewport().get_size()
 	
 
 # Classe personnalisée pour un character
@@ -14,29 +14,51 @@ class Character:
 	var name: String
 	var color: Color
 
-	func _init(pos_x: float, dir: int, char_name: String, char_color: Color, viewport_size, sprite_name: String = char_name):
+	func _init(pos_x: float, direction_char: int, char_name: String, char_color: Color, viewport_size: Vector2, sprite_name: String):
 		position_x = (viewport_size.x / 2) + ((viewport_size.x / 2) * (pos_x / 50))
-		direction = dir
+		direction = direction_char
 		name = char_name
 		color = char_color
+
 		# Créer un sprite pour le character
 		sprite = Sprite2D.new()
-		sprite.texture = load("res://game/characters/"+name.to_lower()+"/"+sprite_name.to_lower()+".png")
-		
+
+		# Chemin du dossier du personnage
+		var dir_path = "res://game/characters/" + name.to_lower() + "/"
+		var dir = DirAccess.open(dir_path)
+
+		if dir:
+			dir.list_dir_begin()  # Commencer à parcourir les fichiers
+			var file_name = dir.get_next()
+
+			while file_name != "":
+				if file_name.begins_with(sprite_name.to_lower()) and not dir.current_is_dir():
+					var full_path = dir_path + file_name
+					if ResourceLoader.exists(full_path):  # Vérifier si le fichier est une ressource valide
+						sprite.texture = load(full_path)
+						break  # On arrête la recherche après avoir trouvé la première correspondance
+				file_name = dir.get_next()
+		else:
+			print("Erreur: Impossible d'ouvrir le dossier du personnage à l'emplacement : ", dir_path)
+
+		# Si aucune texture n'a été chargée, afficher une erreur
+		if not sprite.texture:
+			print("Erreur: Aucune texture trouvée pour le sprite : ", sprite_name)
+			return
+
 		# Calculer la hauteur maximale autorisée (90% de la hauteur du viewport)
 		var max_height: float = viewport_size.y * 0.9
-
-	# Obtenir la hauteur d'origine de la texture
 		var texture_height: float = sprite.texture.get_height()
 
-	# Si la hauteur du sprite dépasse la hauteur maximale, ajuster l'échelle
+		# Si la hauteur du sprite dépasse la hauteur maximale, ajuster l'échelle
 		var scale_factor: float = 1
 		if texture_height > max_height:
 			scale_factor = max_height / texture_height
 			sprite.scale = Vector2(scale_factor, scale_factor)
-			sprite.position.x = position_x
-		sprite.position.y = viewport_size.y - ((sprite.texture.get_height()*scale_factor)/2)
-		
+
+		# Positionner le sprite
+		sprite.position.x = position_x
+		sprite.position.y = viewport_size.y - ((sprite.texture.get_height() * scale_factor) / 2)
 		
 	func move(new_x: float):
 		position_x = new_x
@@ -53,6 +75,6 @@ class Character:
 		sprite.texture = load("res://game/characters/"+name+"/"+sprite_name+".png")
 
 # Fonction pour ajouter un character
-func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, viewport_size):
-	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport_size)
+func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String = char_name):
+	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport_size, char_name)
 	add_child(new_character.sprite)
