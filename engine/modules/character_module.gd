@@ -17,5 +17,7 @@ func get_commands() -> Dictionary:
 	return commands
 
 func cmd_add(name: String, sprite: String = "", position: String = "0"):
-	print(position)
-	scene.get_node("UI").get_node("characters").add_character(position.to_int(), 0, name, Color(1, 0, 0))
+	if name not in scene.get_node("UI").get_node("characters").characters:
+		scene.get_node("UI").get_node("characters").add_character(position.to_int(), 0, name, Color(1, 0, 0))
+	else:
+		scene.get_node("UI").get_node("characters").characters[name].change_sprite(sprite)

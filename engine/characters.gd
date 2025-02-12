@@ -2,6 +2,8 @@ extends Node2D
 
 var viewport_size
 
+var characters = {}
+
 func _ready() -> void:
 	viewport_size = get_viewport().get_size()
 	
@@ -78,3 +80,4 @@ class Character:
 func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String = char_name):
 	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport_size, char_name)
 	add_child(new_character.sprite)
+	characters[char_name] = new_character
