@@ -36,7 +36,7 @@ class Character:
 			while file_name != "":
 				if file_name.begins_with(sprite_name.to_lower()) and not dir.current_is_dir():
 					var full_path = dir_path + file_name
-					var texture = load_image_texture(full_path)
+					var texture = Utils.get_image_texture(full_path)
 					
 					if texture:
 						sprite.texture = texture
@@ -74,22 +74,14 @@ class Character:
 
 	func set_color(new_color: Color):
 		color = new_color
-	
+
 	func change_sprite(sprite_name: String):
 		sprite.texture = load("res://game/characters/"+name+"/"+sprite_name+".png")
 	
-	func load_image_texture(path: String) -> ImageTexture:	
-		var loaded_image := Image.new()
-		var error := loaded_image.load(path)
-		
-		if error != OK:
-			return null
-
-		return ImageTexture.create_from_image(loaded_image)
 	
 # Fonction pour ajouter un character
 func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String = char_name):
-	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport_size, char_name)
+	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport_size, sprite_name)
 	add_child(new_character.sprite)
 	characters[char_name] = new_character
 	
