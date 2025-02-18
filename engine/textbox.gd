@@ -12,13 +12,6 @@ var bold_italic_font = load("res://game/ui/fonts/italic_bold_font.ttf")
 
 var character_colors: Dictionary
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$".".texture = load("res://game/ui/textbar.png")
-	load_character_colors("res://game/characters/characters.json")
-	$MainText.add_theme_font_override("italics_font", italic_font)
-	$MainText.add_theme_font_override("normal_font", regular_font)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

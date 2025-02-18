@@ -1,5 +1,6 @@
 extends Node
 
+
 func get_image_texture(path: String) -> ImageTexture:	
 		var loaded_image := Image.new()
 		var error := loaded_image.load(path)
