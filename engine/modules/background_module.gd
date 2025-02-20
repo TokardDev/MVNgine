@@ -16,6 +16,5 @@ func get_commands() -> Dictionary:
 	commands["bg"] = { "instance": self, "function": "cmd_change_bg" }
 	return commands
 
-func cmd_change_bg(name: String):
-	print("changing background")
-	scene.get_node("UI").change_background(name)
+func cmd_change_bg(background_name: String):
+	Scene.change_background(background_name)

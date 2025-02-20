@@ -1,11 +1,11 @@
 extends Node2D
 
-var viewport_size
+var viewport
 
 var characters = {}
 
 func _ready() -> void:
-	viewport_size = get_viewport().get_size()
+	viewport = get_viewport()
 	
 
 # Classe personnalisée pour un character
@@ -15,18 +15,21 @@ class Character:
 	var direction: int  # 0 pour gauche, 1 pour droite
 	var name: String
 	var color: Color
+	var viewport : Viewport
+	var position : float
 
-	func _init(pos_x: float, direction_char: int, char_name: String, char_color: Color, viewport_size: Vector2, sprite_name: String):
-		position_x = (viewport_size.x / 2) + ((viewport_size.x / 2) * (pos_x / 50))
+	func _init(pos_x: float, direction_char: int, char_name: String, char_color: Color, viewport_pass: Viewport, sprite_name: String):
 		direction = direction_char
 		name = char_name
 		color = char_color
+		viewport = viewport_pass
+		position = pos_x
 
 		# Créer un sprite pour le character
 		sprite = Sprite2D.new()
 
 		# Chemin du dossier du personnage
-		var dir_path = "res://game/characters/" + name.to_lower() + "/"
+		var dir_path = "game/characters/" + name.to_lower() + "/"
 		var dir = DirAccess.open(dir_path)
 
 		if dir:
@@ -39,6 +42,7 @@ class Character:
 					var texture = Utils.get_image_texture(full_path)
 					
 					if texture:
+						print("using texture")
 						sprite.texture = texture
 					break  # On arrête la recherche après avoir trouvé la première correspondance
 				file_name = dir.get_next()
@@ -51,8 +55,11 @@ class Character:
 			return
 
 		# Calculer la hauteur maximale autorisée (90% de la hauteur du viewport)
+		var viewport_size = viewport.get_size()
 		var max_height: float = viewport_size.y * 0.9
 		var texture_height: float = sprite.texture.get_height()
+		
+		position_x = (viewport_size.x / 2) + ((viewport_size.x*0.6 / 2) * (pos_x / 50))
 
 		# Si la hauteur du sprite dépasse la hauteur maximale, ajuster l'échelle
 		var scale_factor: float = 1
@@ -76,12 +83,36 @@ class Character:
 		color = new_color
 
 	func change_sprite(sprite_name: String):
-		sprite.texture = load("res://game/characters/"+name+"/"+sprite_name+".png")
+		sprite.texture = load("game/characters/"+name+"/"+sprite_name+".png")
 	
+	func set_z_index(new_z_index: int):
+		sprite.z_index = new_z_index
+		
+	func resize_sprite():
+		var viewport_size = viewport.get_size()
+		var max_height: float = viewport_size.y * 0.9
+		var texture_height: float = sprite.texture.get_height()
+		
+		var scale_factor: float = 1
+		if texture_height > max_height:
+			scale_factor = max_height / texture_height
+			sprite.scale = Vector2(scale_factor, scale_factor)
+		
+		# put the sprite at the bottom
+		sprite.position.y = viewport_size.y - ((sprite.texture.get_height() * scale_factor) / 2)
+
+		# recalculate position x
+		sprite.position.x = (viewport_size.x / 2) + ((viewport_size.x*0.6 / 2) * (position / 50))
+
+		
 	
 # Fonction pour ajouter un character
-func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String = char_name):
-	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport_size, sprite_name)
+func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String):
+	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport, sprite_name)
 	add_child(new_character.sprite)
 	characters[char_name] = new_character
 	
+
+func resize_all_sprite():
+	for chara in characters:
+		characters[chara].resize_sprite()

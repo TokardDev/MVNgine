@@ -1,14 +1,15 @@
 extends Node2D
 
-var mvn_parser_script = load("res://engine/mvn_parser.gd")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Core.pass_main_scene($Scene)
 	Core.init_modules()
-	Core.load_file("res://game/story/test.mvn")
-	Ui.pass_main_scene($Scene)
-	Ui.load_texbox_texture("res://game/ui/textbar.png")
+	Core.load_file("game/story/test.mvn")
+	Ui.load_texbox_texture("game/ui/textbar.png")
+	start_game()
+
+func start_game() -> void:
+	print("sarting machin")
 	Core.read_lines()
 
 func _input(event):

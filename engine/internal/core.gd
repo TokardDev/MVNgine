@@ -8,12 +8,18 @@ var file: FileAccess
 var current_line_index: int = 0
 
 func init_modules():
-	load_modules("res://game/modules")
-	load_modules("res://engine/modules")
+	print("init modules?")
+	load_modules("game/modules")
+	load_modules("engine/modules")
+	get_viewport().connect("size_changed", Callable(self, "_on_viewport_resized"))
+	print(modules)
 
 
 func pass_main_scene(scene_node : Node2D):
 	main_scene = scene_node
+	Ui.pass_main_scene(scene_node)
+	Scene.pass_main_scene(scene_node)
+	
 
 func execute_command(command: String, args: Array):
 	if command in modules:
@@ -21,6 +27,7 @@ func execute_command(command: String, args: Array):
 		var method_name = modules[command]["function"]
 		if module_instance.has_method(method_name):
 			var callable = Callable(module_instance, method_name)
+			print(args)
 			callable.callv(args)
 		else:
 			print("Command not found: ", command)
@@ -29,10 +36,13 @@ func execute_command(command: String, args: Array):
 
 
 func load_modules(path: String):
+	print("loading module ?")
 	var dir = DirAccess.open(path)
+	print("dir : ", dir)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
+		print(file_name)
 		while file_name != "":
 			if file_name.ends_with(".gd") and not dir.current_is_dir():
 				var module_script = load(path + "/" + file_name)
@@ -53,17 +63,14 @@ func process_parsed_line(parsed: Dictionary) -> void:
 			execute_command(command, args)
 		
 		"character_dialogue":
-			print("change talking : ", parsed["character"])
 			main_scene.get_node("UI").get_node("textbox").change_talking(parsed["character"])
 		
 		"text":
 			main_scene.get_node("UI").get_node("textbox").update_talking()
 			main_scene.get_node("UI").get_node("textbox").update_text(parsed["text"])
 			main_scene.get_node("UI").get_node("textbox").get_node("MainText").modulate = "#ffffff"
-			print("displaying text : ",parsed["text"])
 		
 		"narration":
-			print("displaying narration : ",parsed["text"])
 			main_scene.get_node("UI").get_node("textbox").get_node("Name").text = ""
 			main_scene.get_node("UI").get_node("textbox").update_text("[i]"+parsed["text"]+"[/i]")
 			main_scene.get_node("UI").get_node("textbox").get_node("MainText").modulate = "#9c9c9c"
@@ -127,3 +134,25 @@ func parse_line(line: String) -> Dictionary:
 		result["type"] = "text"
 		result["text"] = line
 	return result
+
+func _on_viewport_resized():
+	main_scene.get_node("UI").get_node("textbox").get_node("MainText").resize_text()
+	main_scene.get_node("UI").get_node("textbox").get_node("Name").resize_text()
+	main_scene.get_node("UI").get_node("characters").resize_all_sprite()
+	
+	var main_window = get_viewport().get_window()
+	
+	# Récupérer la hauteur actuelle de la fenêtre
+	var window_height = main_window.size.y
+	var window_width = main_window.size.x
+	
+	# Calculer la largeur minimale en fonction du ratio 4:3
+	var min_width = int(window_height * (16.0 / 9.0))  # Ratio 4:3
+	
+	print(main_window.size.x)
+
+	main_window.min_size = Vector2(min_width, main_window.min_size.y)
+	var max_height = int(window_width * (9.0 / 16.0))  # Ratio 4:3
+	main_window.max_size = Vector2(main_window.max_size.x, max_height)
+	print("min_width: ", min_width, " max_height: ", max_height)
+	

@@ -2,14 +2,6 @@ extends TextureRect
 
 var current_talking: String
 
-var regular_font = load("res://game/ui/fonts/normal_font.ttf")
-
-var italic_font = load("res://game/ui/fonts/italic_font.ttf")
-
-var bold_font = load("res://game/ui/fonts/bold_font.ttf")
-
-var bold_italic_font = load("res://game/ui/fonts/italic_bold_font.ttf")
-
 var character_colors: Dictionary
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
