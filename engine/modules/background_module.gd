@@ -1,11 +1,6 @@
 # --- do not touch this ---
 extends Node
 
-var scene : Node = null
-
-func setup(scene_ref: Node):
-	scene = scene_ref
-
 func get_commands() -> Dictionary:
 	var commands : Dictionary
 	
@@ -17,4 +12,4 @@ func get_commands() -> Dictionary:
 	return commands
 
 func cmd_change_bg(background_name: String):
-	Scene.change_background(background_name)
+	Utils.find_node("Scene").change_background(background_name)

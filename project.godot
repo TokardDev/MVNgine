@@ -21,6 +21,7 @@ Utils="*res://engine/internal/utils.gd"
 Core="*res://engine/internal/core.gd"
 Scene="*res://engine/internal/scene.gd"
 Ui="*res://engine/internal/ui.gd"
+Characters="*res://engine/internal/characters.gd"
 
 [display]
 

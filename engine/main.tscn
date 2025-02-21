@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwjmsk7fw7o7y"]
+[gd_scene load_steps=9 format=3 uid="uid://dwjmsk7fw7o7y"]
 
 [ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
 [ext_resource type="Script" path="res://engine/main.gd" id="1_44bt7"]
 [ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
 [ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
-[ext_resource type="Script" path="res://engine/characters.gd" id="6_kodfg"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_eulwt"]
 
@@ -31,10 +30,23 @@ script = ExtResource("1_44bt7")
 
 [node name="Scene" type="Node2D" parent="."]
 
+[node name="BG" type="CanvasLayer" parent="Scene"]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="Scene/BG"]
+show_behind_parent = true
+top_level = true
+z_index = -4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="UI" type="CanvasLayer" parent="Scene"]
 
-[node name="textbox" type="TextureRect" parent="Scene/UI"]
-z_index = 4096
+[node name="DialogueBox" type="TextureRect" parent="Scene/UI"]
 anchors_preset = -1
 anchor_top = 0.7
 anchor_right = 1.0
@@ -46,7 +58,7 @@ expand_mode = 2
 script = ExtResource("1_0vldb")
 metadata/_edit_use_anchors_ = true
 
-[node name="MainText" type="RichTextLabel" parent="Scene/UI/textbox"]
+[node name="MainText" type="RichTextLabel" parent="Scene/UI/DialogueBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -63,7 +75,7 @@ scroll_active = false
 script = ExtResource("1_r5024")
 metadata/_edit_use_anchors_ = true
 
-[node name="Name" type="RichTextLabel" parent="Scene/UI/textbox"]
+[node name="Name" type="RichTextLabel" parent="Scene/UI/DialogueBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.225
@@ -80,14 +92,5 @@ scroll_active = false
 script = ExtResource("2_8pi5w")
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="TextureRect" parent="Scene/UI"]
-z_index = -4096
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="characters" type="Node2D" parent="Scene/UI"]
-script = ExtResource("6_kodfg")
+[node name="Characters" type="Node2D" parent="Scene/UI"]
+z_index = 50

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var viewport
 
@@ -7,7 +7,6 @@ var characters = {}
 func _ready() -> void:
 	viewport = get_viewport()
 	
-
 # Classe personnalisée pour un character
 class Character:
 	var sprite: Sprite2D
@@ -42,7 +41,6 @@ class Character:
 					var texture = Utils.get_image_texture(full_path)
 					
 					if texture:
-						print("using texture")
 						sprite.texture = texture
 					break  # On arrête la recherche après avoir trouvé la première correspondance
 				file_name = dir.get_next()
@@ -103,13 +101,10 @@ class Character:
 
 		# recalculate position x
 		sprite.position.x = (viewport_size.x / 2) + ((viewport_size.x*0.6 / 2) * (position / 50))
-
-		
-	
 # Fonction pour ajouter un character
 func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String):
 	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport, sprite_name)
-	add_child(new_character.sprite)
+	Utils.find_node("Characters").add_child(new_character.sprite)
 	characters[char_name] = new_character
 	
 
