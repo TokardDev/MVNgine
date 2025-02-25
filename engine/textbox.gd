@@ -4,17 +4,25 @@ var current_talking: String
 
 var character_colors: Dictionary
 
+var main_text:
+	get:
+		return $MainText.text
+	set(value):
+		$MainText.text = value
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 
 func update_text(text: String) -> void:
-	$MainText.text = text
+	main_text = text
 
 func update_talking() -> void:
 	$Name.text = current_talking
 
+
+		
 
 func change_talking(character_name: String) -> void:
 	current_talking = character_name

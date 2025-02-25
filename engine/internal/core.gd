@@ -1,6 +1,7 @@
 extends Node
 
 var modules = {}
+var history_stack = []
 
 var current_file_path: String
 var file: FileAccess
@@ -54,12 +55,13 @@ func process_parsed_line(parsed: Dictionary) -> void:
 			Utils.find_node("DialogueBox").update_talking()
 			Utils.find_node("DialogueBox").update_text(parsed["text"])
 			Utils.find_node("MainText").modulate = "#ffffff"
+			save_state()
 		
 		"narration":
 			Utils.find_node("Name").text = ""
 			Utils.find_node("DialogueBox").update_text("[i]"+parsed["text"]+"[/i]")
 			Utils.find_node("MainText").modulate = "#9c9c9c"
-
+			save_state()
 
 func read_lines() -> void:
 	var line = read_next_line()
@@ -138,4 +140,36 @@ func _on_viewport_resized():
 	var max_height = int(window_width * (9.0 / 16.0))  # Ratio 4:3
 	main_window.max_size = Vector2(main_window.max_size.x, max_height)
 
-	
+
+func save_state():
+	var state = {
+		"characters": Characters.characters,
+		"current_line_index": current_line_index,
+		"modules": modules.duplicate(true),  # Duplique les modules pour éviter les références partagées
+		"file_state": {
+			"current_file_path": current_file_path,
+			"file_position": file.get_position()
+		},
+		"dialogue_box_state": {
+			"character": Utils.find_node("DialogueBox").current_talking,
+			"text": Utils.find_node("DialogueBox").main_text
+		}
+	}
+	print(Utils.find_node("DialogueBox").main_text)
+	history_stack.push_back(state)
+
+func restore_state():
+	if history_stack.size() > 0:
+		var state = history_stack.pop_back()
+		if 
+		Characters.characters = state["characters"]
+		current_line_index = state["current_line_index"]
+		modules = state["modules"]
+		current_file_path = state["file_state"]["current_file_path"]
+		file.seek(state["file_state"]["file_position"])
+		Utils.find_node("DialogueBox").change_talking(state["dialogue_box_state"]["character"])
+		Utils.find_node("DialogueBox").update_text(state["dialogue_box_state"]["text"])
+		Utils.find_node("MainText").modulate = "#ffffff"
+		print("history size : ", history_stack.size())
+	else:
+		push_error("No state to restore")
