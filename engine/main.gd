@@ -4,7 +4,7 @@ extends Node2D
 func _ready() -> void:
 	Utils.pass_main_scene($Scene)
 	Core.init_modules()
-	Core.load_file("game/story/debug.mvn")
+	Core.load_file("game/story/test.mvn")
 	Ui.load_texbox_texture("game/ui/textbar.png")
 	start_game()
 

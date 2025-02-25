@@ -16,6 +16,7 @@ class Character:
 	var color: Color
 	var viewport : Viewport
 	var position : float
+	var sprite_location : String
 
 	func _init(pos_x: float, direction_char: int, char_name: String, char_color: Color, viewport_pass: Viewport, sprite_name: String):
 		direction = direction_char
@@ -26,6 +27,7 @@ class Character:
 
 		# Créer un sprite pour le character
 		sprite = Sprite2D.new()
+		sprite.name = name
 
 		# Chemin du dossier du personnage
 		var dir_path = "game/characters/" + name.to_lower() + "/"
@@ -38,6 +40,7 @@ class Character:
 			while file_name != "":
 				if file_name.begins_with(sprite_name.to_lower()) and not dir.current_is_dir():
 					var full_path = dir_path + file_name
+					sprite_location = full_path
 					var texture = Utils.get_image_texture(full_path)
 					
 					if texture:
@@ -81,8 +84,10 @@ class Character:
 		color = new_color
 
 	func change_sprite(sprite_name: String):
-		sprite.texture = load("game/characters/"+name+"/"+sprite_name+".png")
-	
+		sprite_location = "game/characters/"+name+"/"+sprite_name+".png"
+		sprite.texture = Utils.get_image_texture(sprite_location)
+		resize_sprite()
+
 	func set_z_index(new_z_index: int):
 		sprite.z_index = new_z_index
 		
@@ -101,12 +106,21 @@ class Character:
 
 		# recalculate position x
 		sprite.position.x = (viewport_size.x / 2) + ((viewport_size.x*0.6 / 2) * (position / 50))
+
+	func remove():
+		sprite.queue_free()
+		
+
 # Fonction pour ajouter un character
 func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String):
 	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport, sprite_name)
 	Utils.find_node("Characters").add_child(new_character.sprite)
 	characters[char_name] = new_character
 	
+func remove_character(char_name: String):
+	if char_name in characters:
+		characters[char_name].remove()
+		characters.erase(char_name)
 
 func resize_all_sprite():
 	for chara in characters:

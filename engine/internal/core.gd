@@ -142,8 +142,12 @@ func _on_viewport_resized():
 
 
 func save_state():
+	var sprites_locations = {}
+	for character in Characters.characters:
+		sprites_locations[character] = Characters.characters[character].sprite_location
 	var state = {
-		"characters": Characters.characters,
+		"characters": Characters.characters.duplicate(true),  # Duplique les personnages pour éviter les références partagées
+		"sprites_locations": sprites_locations,
 		"current_line_index": current_line_index,
 		"modules": modules.duplicate(true),  # Duplique les modules pour éviter les références partagées
 		"file_state": {
@@ -155,13 +159,21 @@ func save_state():
 			"text": Utils.find_node("DialogueBox").main_text
 		}
 	}
-	print(Utils.find_node("DialogueBox").main_text)
 	history_stack.push_back(state)
 
 func restore_state():
-	if history_stack.size() > 0:
+	if history_stack.size() > 1:
 		var state = history_stack.pop_back()
-		if 
+		if state["dialogue_box_state"]["character"] == Utils.find_node("DialogueBox").current_talking:
+			if state["dialogue_box_state"]["text"] == Utils.find_node("DialogueBox").main_text:
+				state = history_stack.pop_back()
+		for chara in Characters.characters:
+			if chara not in state["characters"]:
+				Characters.characters[chara].remove()
+			else:
+				Characters.characters[chara].sprite_location = state["sprites_locations"][chara]
+				Characters.characters[chara].sprite.texture = Utils.get_image_texture(state["sprites_locations"][chara])
+				Characters.characters[chara].resize_sprite()
 		Characters.characters = state["characters"]
 		current_line_index = state["current_line_index"]
 		modules = state["modules"]
@@ -170,6 +182,4 @@ func restore_state():
 		Utils.find_node("DialogueBox").change_talking(state["dialogue_box_state"]["character"])
 		Utils.find_node("DialogueBox").update_text(state["dialogue_box_state"]["text"])
 		Utils.find_node("MainText").modulate = "#ffffff"
-		print("history size : ", history_stack.size())
-	else:
-		push_error("No state to restore")
+		save_state()
