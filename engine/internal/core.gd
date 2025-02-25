@@ -104,7 +104,10 @@ func close_file() -> void:
 # Analyser une ligne de texte et renvoyer un dictionnaire
 func parse_line(line: String) -> Dictionary:
 	var result = {}
-	if line.begins_with("["):
+	if line.begins_with("[b]") or line.begins_with("[i]"):
+		result["type"] = "text"
+		result["text"] = line
+	elif line.begins_with("["):
 		# Commande (ex: [bg forest])
 		result["type"] = "command"
 		result["content"] = line.trim_prefix("[").trim_suffix("]")
