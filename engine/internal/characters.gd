@@ -112,7 +112,11 @@ class Character:
 		
 
 # Fonction pour ajouter un character
-func add_character(pos_x: float, dir: int, char_name: String, char_color: Color, sprite_name: String):
+func add_character(pos_x: float, dir: int, char_name: String, sprite_name: String):
+	var char_color = get_char_color(char_name)
+	if char_color == "":
+		char_color = "#ffffff"
+	print(char_color)
 	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport, sprite_name)
 	Utils.find_node("Characters").add_child(new_character.sprite)
 	characters[char_name] = new_character
@@ -125,3 +129,36 @@ func remove_character(char_name: String):
 func resize_all_sprite():
 	for chara in characters:
 		characters[chara].resize_sprite()
+
+
+func get_char_color(character_name: String) -> String:
+	var file_path = "game/characters/characters.json"
+	if not FileAccess.file_exists(file_path):
+		push_error("Can't find character json !")
+		return ""
+
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	var json_string = file.get_as_text()
+	file.close()
+
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if parse_result != OK:
+		push_error("Failed to parse JSON")
+		return ""
+
+	var data = json.get_data()
+	if not data.has("characters"):
+		push_error("Invalid JSON structure")
+		return ""
+
+	var characters = {}
+	for key in data["characters"].keys():
+		characters[key.to_lower()] = data["characters"][key]
+
+	var lower_name = character_name.to_lower()
+	if lower_name in characters:
+		return characters[lower_name]
+
+	push_error("Character not found in JSON: " + character_name)
+	return ""

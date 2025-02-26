@@ -14,7 +14,7 @@ func get_commands() -> Dictionary:
 
 func cmd_add(char_name: String, sprite: String = char_name, position: String = "0"):
 	if char_name not in Characters.characters:
-		Characters.add_character(position.to_int(), 0, char_name, Color(1, 0, 0), sprite)
+		Characters.add_character(position.to_int(), 0, char_name, sprite)
 	else:
 		Characters.characters[char_name].change_sprite(sprite)
 

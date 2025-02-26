@@ -50,6 +50,7 @@ func process_parsed_line(parsed: Dictionary) -> void:
 		
 		"character_dialogue":
 			Utils.find_node("DialogueBox").change_talking(parsed["character"])
+			Utils.find_node("Name").modulate = Characters.characters[parsed["character"].to_lower()].color
 		
 		"text":
 			Utils.find_node("DialogueBox").update_talking()
@@ -104,13 +105,13 @@ func close_file() -> void:
 # Analyser une ligne de texte et renvoyer un dictionnaire
 func parse_line(line: String) -> Dictionary:
 	var result = {}
-	if line.begins_with("[b]") or line.begins_with("[i]"):
+	if line.begins_with("[b]") or line.begins_with("[i]"): # include case in command 
 		result["type"] = "text"
 		result["text"] = line
 	elif line.begins_with("["):
 		# Commande (ex: [bg forest])
 		result["type"] = "command"
-		result["content"] = line.trim_prefix("[").trim_suffix("]")
+		result["content"] = line.trim_prefix("[").trim_suffix("]") # rework this, only get between [ ]
 	elif line.begins_with(">"):
 		# Dialogue d'un personnage
 		result["type"] = "character_dialogue"

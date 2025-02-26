@@ -1,6 +1,8 @@
 {
   "characters": {
     "Copper": "ff8133",
-    "Bowden": "33a7ff"
+    "Bowden": "33a7ff",
+    "A350" : "#5282d1",
+    "A220" : "#5282d1"
   }
 }
