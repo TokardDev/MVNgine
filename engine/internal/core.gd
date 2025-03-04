@@ -6,6 +6,7 @@ var history_stack = []
 var current_file_path: String
 var file: FileAccess
 var current_line_index: int = 0
+var seen_line = 0
 
 func init_modules():
 	load_modules("game/modules")
@@ -64,7 +65,21 @@ func process_parsed_line(parsed: Dictionary) -> void:
 			Utils.find_node("MainText").modulate = "#9c9c9c"
 			save_state()
 
-func read_lines() -> void:
+func read_lines(scroll : bool = false) -> void:
+	var line = read_next_line()
+	var parsed = parse_line(line)
+	if (scroll and seen_line > current_line_index) or (not scroll):
+		if parsed["type"] != "text" and parsed["type"] != "narration":
+			process_parsed_line(parsed)
+			read_lines()
+		else:
+			process_parsed_line(parsed)
+			if seen_line < current_line_index :
+				seen_line = current_line_index
+		
+		
+
+func read_lines_fast() -> void:
 	var line = read_next_line()
 	var parsed = parse_line(line)
 	if parsed["type"] != "text" and parsed["type"] != "narration":
@@ -183,7 +198,13 @@ func restore_state():
 		modules = state["modules"]
 		current_file_path = state["file_state"]["current_file_path"]
 		file.seek(state["file_state"]["file_position"])
-		Utils.find_node("DialogueBox").change_talking(state["dialogue_box_state"]["character"])
+		var chara_talking = state["dialogue_box_state"]["character"]
+		if chara_talking == "":
+			Utils.find_node("MainText").modulate = "#9c9c9c"
+		else:
+			Utils.find_node("MainText").modulate = "#ffffff"
+			print(Characters.characters[chara_talking.to_lower()].color)
+			Utils.find_node("DialogueBox").change_talking(chara_talking)
+			Utils.find_node("Name").modulate = Characters.characters[chara_talking.to_lower()].color
 		Utils.find_node("DialogueBox").update_text(state["dialogue_box_state"]["text"])
-		Utils.find_node("MainText").modulate = "#ffffff"
 		save_state()

@@ -116,7 +116,6 @@ func add_character(pos_x: float, dir: int, char_name: String, sprite_name: Strin
 	var char_color = get_char_color(char_name)
 	if char_color == "":
 		char_color = "#ffffff"
-	print(char_color)
 	var new_character = Character.new(pos_x, dir, char_name, char_color, viewport, sprite_name)
 	Utils.find_node("Characters").add_child(new_character.sprite)
 	characters[char_name] = new_character

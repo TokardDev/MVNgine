@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwjmsk7fw7o7y"]
 
-[ext_resource type="Script" path="res://engine/textbox.gd" id="1_0vldb"]
-[ext_resource type="Script" path="res://engine/main.gd" id="1_44bt7"]
-[ext_resource type="Script" path="res://engine/main_text.gd" id="1_r5024"]
-[ext_resource type="Script" path="res://engine/name.gd" id="2_8pi5w"]
+[ext_resource type="Script" uid="uid://dt7rf4yemvur" path="res://engine/textbox.gd" id="1_0vldb"]
+[ext_resource type="Script" uid="uid://cchifhdyuxcfg" path="res://engine/main.gd" id="1_44bt7"]
+[ext_resource type="Script" uid="uid://dxu7mqtt84ykq" path="res://engine/main_text.gd" id="1_r5024"]
+[ext_resource type="Script" uid="uid://cxclbic6svepx" path="res://engine/name.gd" id="2_8pi5w"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_eulwt"]
 

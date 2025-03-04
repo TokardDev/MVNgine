@@ -18,7 +18,7 @@ func _input(event):
 				Core.read_lines()
 			MOUSE_BUTTON_WHEEL_DOWN, MOUSE_BUTTON_WHEEL_UP:
 				if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-					Core.read_lines()
+					Core.read_lines(true)
 				else:
 					Core.restore_state()
 			MOUSE_BUTTON_RIGHT:
